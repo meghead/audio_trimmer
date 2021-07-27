@@ -25,9 +25,9 @@ class AudioTrimmer {
     final FlutterFFmpeg _flutterFFmpeg = FlutterFFmpeg();
 
     final Directory dir = await getTemporaryDirectory();
-    final outPath = "${dir.path}/output.mp3";
+    final outPath = "${dir.path}/output.m4a";
     var cmd =
-        "-y -i \"$path\" -vn -ss $start -to $end -ar -ac copy -c:a aac $outPath";
+        "-y -i \"$path\" -vn -ss $start -to $end -c:a aac $outPath";
     int rc = await _flutterFFmpeg.execute(cmd);
 
     if (rc != 0) {
